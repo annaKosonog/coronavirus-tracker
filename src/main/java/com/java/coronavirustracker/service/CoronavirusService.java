@@ -47,7 +47,6 @@ public class CoronavirusService {
             responseBody = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println(responseBody);
         }
 
         StringReader csvBodyReader = new StringReader(responseBody);
@@ -57,7 +56,7 @@ public class CoronavirusService {
             locationStat.setState(record.get("Province/State"));
             locationStat.setCountry(record.get("Country/Region"));
             locationStat.setLatestCases(Integer.parseInt(record.get(record.size() - 1)));
-            System.out.println(locationStat);
+           // System.out.println(locationStat);
             newStats.add(locationStat);
         }
         this.allStats = newStats;
